@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #F5F3EF;
+  --color-cream-dark: #EDE5DB;
+  --color-white: #FFFFFF;
+  --color-dark: #1A1A1A;
+  --color-dark-deep: #0D0D0F;
+  --color-dark-surface: #1A1A22;
+  --color-brand-red: #E63946;
+  --color-brand-red-dark: #C62828;
+  --color-accent-teal: #0D9488;
+  --color-accent-teal-light: #CCFBF1;
+  --color-accent-orange: #F4A261;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
+  --color-text-on-dark: #F5F5F7;
+  --color-text-on-dark-secondary: #9CA3AF;
+  --color-border-light: #E5E7EB;
+  --color-border-dark: rgba(255,255,255,0.08);
+
+  --font-heading: var(--font-fraunces);
+  --font-body: var(--font-jakarta);
+  --font-accent: var(--font-instrument);
+  --font-handwritten: var(--font-caveat);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-text-primary);
+  font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute; top: -100%; left: 16px; z-index: 100;
+  padding: 8px 16px; background: var(--color-brand-red); color: white;
+  border-radius: 0 0 8px 8px; font-weight: 600; text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+
+*:focus-visible {
+  outline: 2px solid var(--color-brand-red);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+[id] { scroll-margin-top: 5rem; }
+::selection { background: var(--color-brand-red); color: white; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-brand-red); border-radius: 3px; }
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+/* Typography */
+.heading {
+  font-family: var(--font-heading), Georgia, serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variation-settings: "SOFT" 50, "WONK" 0;
+}
+
+.heading-warm {
+  font-family: var(--font-heading), Georgia, serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+
+.accent-serif {
+  font-family: var(--font-accent), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.handwritten {
+  font-family: var(--font-handwritten), cursive;
+  font-weight: 600;
+}
+
+.handwritten-note {
+  font-family: var(--font-handwritten), cursive;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  color: var(--color-brand-red);
+}
+
+/* Scroll progress */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, var(--color-brand-red), var(--color-accent-orange));
+  z-index: 100; transform-origin: left;
+}
+
+/* Soft card */
+.card-soft {
+  background: white;
+  border-radius: 1.25rem;
+  border: 1px solid var(--color-border-light);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card-soft:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 12px 32px rgba(0,0,0,0.04);
+}
+
+/* Glass on dark */
+.glass-dark {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
