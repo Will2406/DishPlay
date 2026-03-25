@@ -33,13 +33,13 @@ export default function Problem() {
   });
 
   return (
-    <section ref={ref} className="bg-white py-20 md:py-32">
+    <section ref={ref} className="bg-dark-surface py-20 md:py-32">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <motion.div {...anim(0)} className="max-w-3xl mb-14">
-          <h2 className="heading text-[clamp(2rem,5vw,3.5rem)] text-text-primary mb-4">
+          <h2 className="heading text-[clamp(2rem,5vw,3.5rem)] text-text-on-dark mb-4">
             Tu menu actual <span className="accent-serif text-brand-red">no esta vendiendo.</span>
           </h2>
-          <p className="font-body text-lg text-text-secondary leading-relaxed">
+          <p className="font-body text-lg text-text-on-dark-secondary leading-relaxed">
             Y probablemente ni lo sabes. Cada plato sin buena foto, sin video, sin experiencia visual — es una venta que se fue a otro restaurante.
           </p>
         </motion.div>
@@ -53,17 +53,17 @@ export default function Problem() {
               className={`rounded-2xl p-6 md:p-7 flex flex-col ${
                 card.featured
                   ? "bg-brand-red text-white shadow-lg shadow-brand-red/15"
-                  : "card-soft"
+                  : "glass-dark"
               }`}
             >
               <span className="text-3xl mb-4" aria-hidden="true">{card.icon}</span>
               <h3 className={`font-body font-bold text-lg mb-2 ${
-                card.featured ? "text-white" : "text-text-primary"
+                card.featured ? "text-white" : "text-text-on-dark"
               }`}>
                 {card.title}
               </h3>
               <p className={`font-body text-sm leading-relaxed ${
-                card.featured ? "text-white/85" : "text-text-secondary"
+                card.featured ? "text-white/85" : "text-text-on-dark-secondary"
               }`}>
                 {card.desc}
               </p>
@@ -72,7 +72,7 @@ export default function Problem() {
         </div>
 
         {/* Stat */}
-        <motion.div {...anim(0.4)} className="bg-text-primary rounded-2xl p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6">
+        <motion.div {...anim(0.4)} className="glass-dark rounded-2xl p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6">
           <span className="heading text-5xl md:text-7xl text-brand-red" style={{ fontVariationSettings: '"SOFT" 100' }}>+30%</span>
           <div>
             <p className="font-body text-text-on-dark text-lg leading-relaxed">

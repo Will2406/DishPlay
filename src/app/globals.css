@@ -29,8 +29,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--color-cream);
-  color: var(--color-text-primary);
+  background: var(--color-dark-deep);
+  color: var(--color-text-on-dark);
   font-family: var(--font-body), system-ui, sans-serif;
   overflow-x: hidden;
 }
@@ -54,7 +54,7 @@ body {
 ::selection { background: var(--color-brand-red); color: white; }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-track { background: var(--color-dark-deep); }
 ::-webkit-scrollbar-thumb { background: var(--color-brand-red); border-radius: 3px; }
 
 /* Lenis */
@@ -105,17 +105,17 @@ html.lenis, html.lenis body { height: auto; }
   z-index: 100; transform-origin: left;
 }
 
-/* Soft card */
+/* Soft card (dark mode) */
 .card-soft {
-  background: white;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
   border-radius: 1.25rem;
-  border: 1px solid var(--color-border-light);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .card-soft:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 12px 32px rgba(0,0,0,0.04);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.2);
 }
 
 /* Glass on dark */
