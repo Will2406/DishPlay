@@ -5,10 +5,32 @@ import Image from "next/image";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 
 const steps = [
-  { n: "01", who: "Tu", title: "Nos contactas", desc: "Escribenos por WhatsApp o llena el formulario. Coordinamos para entender que necesitas.", time: "5 min" },
-  { n: "02", who: "Dishplay", title: "Capturamos todo", desc: "Nuestro equipo va a tu restaurante. Fotografiamos y grabamos cada plato.", time: "Media jornada", highlight: true },
-  { n: "03", who: "Dishplay", title: "Creamos tu carta", desc: "Editamos todo. Modelos 3D, videos, fotos. Tu carta con URL y QR personalizados.", time: "< 1 semana", highlight: true },
-  { n: "04", who: "Tu", title: "Pon el QR en tu mesa", desc: "Te entregamos todo listo. Tus clientes ya viven la experiencia.", time: "¡Live!" },
+  {
+    n: "01", who: "Tu",
+    title: "Nos escribes",
+    desc: "WhatsApp o formulario. Coordinamos la visita a tu local.",
+    time: "5 min",
+  },
+  {
+    n: "02", who: "Dishplay",
+    title: "Escaneamos cada plato",
+    desc: "Vamos a tu restaurante y capturamos cada plato con fotogrametria para generar los modelos 3D.",
+    time: "Media jornada",
+    highlight: true,
+  },
+  {
+    n: "03", who: "Dishplay",
+    title: "Armamos tu carta en 3D",
+    desc: "Procesamos los modelos, editamos fotos y video, y montamos tu carta digital con QR y AR.",
+    time: "< 1 semana",
+    highlight: true,
+  },
+  {
+    n: "04", who: "Tu",
+    title: "QR en la mesa. Listo.",
+    desc: "Tus clientes escanean y ven cada plato en 3D sobre su propia mesa antes de pedir.",
+    time: "🚀 Live",
+  },
 ];
 
 export default function HowItWorks() {
@@ -30,7 +52,6 @@ export default function HowItWorks() {
                 width={700} height={500} className="w-full h-auto object-cover"
               />
             </div>
-            {/* Floating stat */}
             <motion.div
               initial={reduced ? {} : { opacity: 0, y: 15 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -53,14 +74,14 @@ export default function HowItWorks() {
               </span>
               <h2 className="heading text-[clamp(2rem,5vw,3rem)] text-text-primary mb-8">
                 Tu nos abres las puertas.{" "}
-                <span className="accent-serif text-brand-red">Nosotros hacemos el resto.</span>
+                <span className="accent-serif text-brand-red">Nosotros nos encargamos del resto.</span>
               </h2>
             </motion.div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               {steps.map((s, i) => (
                 <motion.div key={s.n} {...anim(0.15 + i * 0.1)}
-                  className={`flex gap-4 p-4 rounded-xl transition-[background] ${s.highlight ? "bg-brand-red/5" : "bg-cream/80"}`}
+                  className={`flex gap-4 p-4 rounded-xl ${s.highlight ? "bg-brand-red/5" : "bg-cream/80"}`}
                 >
                   <div className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-sm font-body font-bold ${
                     s.highlight ? "bg-brand-red text-white" : "bg-border-light text-text-secondary"
@@ -68,20 +89,25 @@ export default function HowItWorks() {
                     {s.n}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className={`text-[10px] font-body font-bold uppercase tracking-wider ${s.highlight ? "text-brand-red" : "text-text-muted"}`}>{s.who}</span>
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <h3 className="font-body font-bold text-text-primary text-sm">{s.title}</h3>
                       <span className="text-[10px] font-body text-text-muted">· {s.time}</span>
                     </div>
-                    <h3 className="font-body font-bold text-text-primary text-sm mb-0.5">{s.title}</h3>
-                    <p className="font-body text-sm text-text-secondary leading-relaxed">{s.desc}</p>
+                    <p className="font-body text-sm text-text-secondary">{s.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            <motion.div {...anim(0.7)} className="mt-6">
+            <motion.div {...anim(0.6)} className="flex flex-wrap gap-x-5 gap-y-1 mt-6 text-xs font-body text-text-secondary">
+              <span>✓ Sin conocimiento tecnico</span>
+              <span>✓ Tu local no para</span>
+              <span>✓ Soporte incluido</span>
+            </motion.div>
+
+            <motion.div {...anim(0.65)} className="mt-5">
               <a href="#contacto" className="inline-block bg-text-primary text-white font-body font-bold text-sm px-7 py-3.5 rounded-full hover:bg-brand-red transition-[background] active:scale-[0.98]">
-                ¿Empezamos? Conversemos →
+                Quiero estar en la lista →
               </a>
             </motion.div>
           </div>

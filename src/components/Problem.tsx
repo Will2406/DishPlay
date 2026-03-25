@@ -1,8 +1,26 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { motion, useInView, useReducedMotion } from "framer-motion";
+
+const cards = [
+  {
+    icon: "🧾",
+    title: "La carta no convence",
+    desc: "Un PDF o una pizarra no transmiten sabor. El cliente no sabe si el plato vale el precio hasta que lo recibe — y a veces ya es demasiado tarde.",
+  },
+  {
+    icon: "📷",
+    title: "Fotos que no venden",
+    desc: "Un plato delicioso fotografiado con celular parece mediocre. La primera impresion visual lo es todo — y la tuya se esta perdiendo.",
+    featured: true,
+  },
+  {
+    icon: "👨‍🍳",
+    title: "Tu comida es buena. Nadie lo sabe.",
+    desc: "Pusiste esfuerzo en cada plato. Pero si el cliente no puede verlo antes de pedirlo, ese esfuerzo no llega a la mesa. Tu cocina trabaja duro. Tu carta no.",
+  },
+];
 
 export default function Problem() {
   const ref = useRef<HTMLElement>(null);
@@ -17,52 +35,40 @@ export default function Problem() {
   return (
     <section ref={ref} className="bg-white py-20 md:py-32">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <motion.div {...anim(0)} className="max-w-2xl mb-14">
+        <motion.div {...anim(0)} className="max-w-3xl mb-14">
           <h2 className="heading text-[clamp(2rem,5vw,3.5rem)] text-text-primary mb-4">
             Tu menu actual <span className="accent-serif text-brand-red">no esta vendiendo.</span>
           </h2>
           <p className="font-body text-lg text-text-secondary leading-relaxed">
-            Cada plato sin buena foto es una venta que se fue a otro restaurante.
+            Y probablemente ni lo sabes. Cada plato sin buena foto, sin video, sin experiencia visual — es una venta que se fue a otro restaurante.
           </p>
         </motion.div>
 
-        {/* Before / After comparison */}
-        <div className="grid md:grid-cols-2 gap-6 mb-14">
-          <motion.div {...anim(0.1)} className="card-soft p-2 overflow-hidden">
-            <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
-              <Image
-                src="https://images.unsplash.com/photo-1610970879786-70b2cc0e8a9c?w=600&h=450&fit=crop&q=80"
-                alt="Foto amateur de hamburguesa — iluminacion pobre, angulo plano"
-                fill className="object-cover brightness-90 contrast-90 saturate-75"
-              />
-              <div className="absolute top-3 left-3 bg-red-500/90 text-white text-xs font-body font-bold px-3 py-1 rounded-full">
-                Asi se ve hoy
-              </div>
-              {/* Simulated phone flash overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/20" />
-            </div>
-            <div className="p-4">
-              <h3 className="font-body font-bold text-text-primary mb-1">Foto con celular</h3>
-              <p className="font-body text-sm text-text-secondary">Flash, mal angulo, sin estilismo. Tu plato no se ve como sabe.</p>
-            </div>
-          </motion.div>
-
-          <motion.div {...anim(0.2)} className="card-soft p-2 overflow-hidden ring-2 ring-accent-teal/30">
-            <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
-              <Image
-                src="https://images.unsplash.com/photo-1625860633266-8707a63d6671?w=600&h=450&fit=crop&q=80"
-                alt="Plato gourmet con salsa sobre ceramica negra — fotografia profesional"
-                fill className="object-cover"
-              />
-              <div className="absolute top-3 left-3 bg-accent-teal/90 text-white text-xs font-body font-bold px-3 py-1 rounded-full">
-                Asi se ve con Dishplay
-              </div>
-            </div>
-            <div className="p-4">
-              <h3 className="font-body font-bold text-text-primary mb-1">Foto profesional</h3>
-              <p className="font-body text-sm text-text-secondary">Iluminacion, composicion y estilismo. Tu plato vende antes de llegar a la mesa.</p>
-            </div>
-          </motion.div>
+        {/* 3 Problem Cards */}
+        <div className="grid md:grid-cols-3 gap-5 mb-14">
+          {cards.map((card, i) => (
+            <motion.div
+              key={card.title}
+              {...anim(0.1 + i * 0.1)}
+              className={`rounded-2xl p-6 md:p-7 flex flex-col ${
+                card.featured
+                  ? "bg-brand-red text-white shadow-lg shadow-brand-red/15"
+                  : "card-soft"
+              }`}
+            >
+              <span className="text-3xl mb-4" aria-hidden="true">{card.icon}</span>
+              <h3 className={`font-body font-bold text-lg mb-2 ${
+                card.featured ? "text-white" : "text-text-primary"
+              }`}>
+                {card.title}
+              </h3>
+              <p className={`font-body text-sm leading-relaxed ${
+                card.featured ? "text-white/85" : "text-text-secondary"
+              }`}>
+                {card.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
         {/* Stat */}
@@ -70,10 +76,10 @@ export default function Problem() {
           <span className="heading text-5xl md:text-7xl text-brand-red" style={{ fontVariationSettings: '"SOFT" 100' }}>+30%</span>
           <div>
             <p className="font-body text-text-on-dark text-lg leading-relaxed">
-              Un menu visual profesional puede aumentar el ticket promedio entre un <strong className="text-accent-orange">20% y 30%</strong>.
+              Los restaurantes con menu visual de calidad aumentan su ticket promedio hasta un <strong className="text-accent-orange">30%</strong>.
             </p>
             <p className="font-body text-text-on-dark-secondary text-sm mt-2 handwritten-note" style={{ color: "rgba(255,255,255,0.5)" }}>
-              imagina eso con modelos 3D en la mesa ↗
+              imagina ese numero con modelos 3D que el cliente puede poner en su mesa ↗
             </p>
           </div>
         </motion.div>

@@ -7,23 +7,23 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 const features = [
   {
     icon: "📱", title: "Carta digital con QR",
-    desc: "URL propia, QR listo para imprimir y panel admin desde tu celular.",
-    detail: "Lista en 5 dias.",
+    desc: "URL propia de tu restaurante, QR listo para imprimir y panel admin para gestionar tu carta.",
+    detail: "Tu carta en la mesa en dias, no semanas.",
   },
   {
     icon: "📸", title: "Fotografia profesional",
-    desc: "Sesion en tu local. Fotos que hacen que tu plato hable.",
-    detail: "El cliente sabe que va a comer.",
+    desc: "Sesion en tu local con equipo profesional. Fotos que transmiten sabor, calidad y valor real del plato.",
+    detail: "El cliente sabe que va a comer antes de pedirlo.",
   },
   {
     icon: "🎬", title: "Video de cada plato",
-    desc: "Videos de 15-30s con textura, vapor y frescura. Para tu carta y redes.",
-    detail: "Instagram y TikTok incluido.",
+    desc: "Videos cortos de 15-30 seg. Perfectos para la carta y reutilizables en redes sociales.",
+    detail: "Contenido para Instagram y TikTok incluido.",
   },
   {
-    icon: "🥽", title: "3D + Realidad Aumentada",
-    desc: "El cliente coloca el plato en 3D en su mesa. Sin app.",
-    detail: "La experiencia que nadie tiene.",
+    icon: "🥽", title: "Modelo 3D + Realidad Aumentada",
+    desc: "El cliente coloca el plato en 3D en su propia mesa antes de pedirlo. Via AR, desde cualquier celular, sin app.",
+    detail: "La experiencia que ningun competidor tiene todavia.",
     featured: true,
   },
 ];
@@ -44,14 +44,12 @@ export default function WhatIsDishplay() {
               La solucion
             </span>
             <h2 className="heading text-[clamp(2rem,5vw,3.5rem)] text-text-primary mb-4">
-              Tu pones los platos.{" "}
-              <span className="accent-serif text-brand-red">Nosotros los hacemos irresistibles.</span>
+              Una carta digital completa.{" "}
+              <span className="accent-serif text-brand-red">Nosotros hacemos todo.</span>
             </h2>
             <p className="font-body text-lg text-text-secondary leading-relaxed">
-              DISHPLAY convierte tu carta en una experiencia visual. Tus clientes ven fotos,
-              videos y modelos 3D desde cualquier celular.
+              DISHPLAY convierte tu carta en una experiencia digital inmersiva con un QR en tu mesa. Tus clientes la abren desde cualquier celular — sin descargar nada — y pueden ver fotos profesionales, videos y modelos 3D de cada plato. Nosotros vamos a tu local, producimos todo el contenido y lo dejamos funcionando. Tu solo pones los platos.
             </p>
-            <span className="handwritten-note inline-block mt-3 rotate-[-2deg]">nosotros nos encargamos de todo ↗</span>
           </motion.div>
 
           <motion.div {...anim(0.2)} className="relative rounded-2xl overflow-hidden shadow-xl">
@@ -63,8 +61,8 @@ export default function WhatIsDishplay() {
           </motion.div>
         </div>
 
-        {/* Feature cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Feature cards - 2x2 grid */}
+        <div className="grid sm:grid-cols-2 gap-4">
           {features.map((f, i) => (
             <motion.div key={f.title} {...anim(0.1 + i * 0.08)}
               className={`card-soft p-6 flex flex-col ${f.featured ? "ring-2 ring-brand-red/20 relative" : ""}`}
@@ -83,10 +81,10 @@ export default function WhatIsDishplay() {
         </div>
 
         <motion.div {...anim(0.6)} className="mt-12 text-center">
-          <a href="#contacto" className="inline-block bg-text-primary text-white font-body font-bold px-7 py-3.5 rounded-full hover:bg-brand-red transition-[background] active:scale-[0.98]">
-            Ver demo gratis
+          <a href="#contacto" className="inline-block border-2 border-brand-red text-brand-red font-body font-bold px-7 py-3.5 rounded-full hover:bg-brand-red hover:text-white transition-[background,color] active:scale-[0.98]">
+            Quiero estar en la lista →
           </a>
-          <p className="font-body text-sm text-text-secondary mt-3">Sin compromiso. Te mostramos con platos reales.</p>
+          <p className="font-body text-sm text-text-secondary mt-3">Sin compromiso. Te avisamos cuando estemos listos.</p>
         </motion.div>
       </div>
     </section>

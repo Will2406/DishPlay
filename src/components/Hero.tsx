@@ -19,20 +19,19 @@ export default function Hero() {
               </span>
 
               <h1 className="heading text-[clamp(2.5rem,6vw,4.5rem)] text-text-primary mb-5">
-                Tu cliente lo ve.{" "}
-                <span className="accent-serif text-brand-red">Lo desea.</span>{" "}
-                Lo pide.
+                Tu cliente escanea.{" "}
+                <span className="accent-serif text-brand-red">Ve el plato en 3D.</span>{" "}
+                Pide.
               </h1>
 
               <p className="font-body text-lg text-text-secondary leading-relaxed max-w-lg">
-                Carta digital con fotos profesionales, video y modelos 3D de cada plato.
-                Accesible con un QR desde cualquier celular, sin descargar nada.
+                DISHPLAY convierte tu carta en una experiencia digital inmersiva: fotos profesionales, video y modelos 3D de cada plato — accesibles con un QR desde cualquier celular. Nosotros vamos a tu local, producimos todo, y tu carta queda lista en dias.
               </p>
             </motion.div>
 
             <motion.div {...fade(0.3)} className="flex flex-col sm:flex-row gap-3 mt-1">
               <a href="#contacto" className="bg-brand-red text-white font-body font-bold text-base px-7 py-3.5 rounded-full hover:bg-brand-red-dark transition-[background,box-shadow] hover:shadow-lg hover:shadow-brand-red/20 active:scale-[0.98] text-center">
-                Quiero una demo gratis →
+                Quiero estar en la lista →
               </a>
               <a href="#como-funciona" className="font-body font-semibold text-base text-text-secondary hover:text-text-primary transition-colors flex items-center justify-center gap-1.5 px-4 py-3.5">
                 Ver como funciona →
@@ -40,17 +39,13 @@ export default function Hero() {
             </motion.div>
 
             <motion.div {...fade(0.5)} className="flex flex-wrap gap-x-5 gap-y-2 mt-2">
-              {["Sin app que descargar", "Lista en 5 dias", "Tu solo pones los platos"].map((t) => (
+              {["Sin app que descargar", "Lista en dias", "Nosotros hacemos todo"].map((t) => (
                 <span key={t} className="flex items-center gap-2 text-sm font-body text-text-secondary">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent-teal" aria-hidden="true" />
                   {t}
                 </span>
               ))}
             </motion.div>
-
-            <motion.span {...fade(0.6)} className="handwritten-note inline-block mt-1 rotate-[-2deg]">
-              asi de simple →
-            </motion.span>
           </div>
 
           {/* Image */}
