@@ -3,6 +3,7 @@ import { Fraunces, Plus_Jakarta_Sans, Instrument_Serif, Caveat } from "next/font
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import ScrollProgress from "@/components/ScrollProgress";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -31,7 +32,7 @@ const caveat = Caveat({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#F5F3EF",
+  themeColor: "#0D0D0F",
   width: "device-width",
   initialScale: 1,
 };
@@ -46,11 +47,16 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('theme')||'dark';if(t==='dark')document.documentElement.classList.add('dark')})()` }} />
+      </head>
       <body className={`${fraunces.variable} ${plusJakarta.variable} ${instrumentSerif.variable} ${caveat.variable} antialiased`}>
-        <a href="#main-content" className="skip-link">Saltar al contenido</a>
-        <ScrollProgress />
-        <SmoothScroll>{children}</SmoothScroll>
+        <ThemeProvider>
+          <a href="#main-content" className="skip-link">Saltar al contenido</a>
+          <ScrollProgress />
+          <SmoothScroll>{children}</SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );
