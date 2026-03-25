@@ -68,7 +68,6 @@ export default function FAQ() {
               {[
                 { id: "nombre", label: "Nombre", ph: "Tu nombre", auto: "name" },
                 { id: "restaurante", label: "Restaurante", ph: "Nombre de tu restaurante", auto: "organization" },
-                { id: "contacto", label: "WhatsApp o email", ph: "999 999 999", auto: "tel" },
               ].map((f) => (
                 <div key={f.id}>
                   <label htmlFor={f.id} className="block font-body text-xs font-medium text-text-primary mb-1 uppercase tracking-wider">{f.label}</label>
@@ -79,6 +78,25 @@ export default function FAQ() {
                   />
                 </div>
               ))}
+
+              <div>
+                <label htmlFor="contacto" className="block font-body text-xs font-medium text-text-primary mb-1 uppercase tracking-wider">WhatsApp</label>
+                <div className="flex rounded-xl border border-border-light focus-within:ring-2 focus-within:ring-brand-red/20 focus-within:border-brand-red transition-[border,box-shadow] overflow-hidden">
+                  <span className="flex items-center px-3 bg-cream font-body text-sm text-text-secondary border-r border-border-light select-none">+51</span>
+                  <input id="contacto" name="contacto" type="tel" autoComplete="tel" placeholder="999 999 999"
+                    value={form.contacto}
+                    onChange={(e) => {
+                      const digits = e.target.value.replace(/\D/g, "").slice(0, 9);
+                      setForm({ ...form, contacto: digits });
+                    }}
+                    maxLength={9}
+                    inputMode="numeric"
+                    pattern="[0-9]{9}"
+                    className="flex-1 px-3 py-3 font-body text-sm text-text-primary placeholder:text-text-muted focus-visible:outline-none bg-transparent"
+                    required
+                  />
+                </div>
+              </div>
 
               <button type="submit" className="w-full bg-brand-red text-white font-body font-bold text-sm py-3.5 rounded-full hover:bg-brand-red-dark transition-[background,box-shadow] hover:shadow-lg hover:shadow-brand-red/20 active:scale-[0.98] mt-1">
                 {sent ? "¡Listo! Te contactamos pronto ✓" : "Quiero estar en la lista →"}
