@@ -34,9 +34,9 @@ export default function Hero() {
                 Nuevo en Peru
               </span>
               <h1 className="heading text-[clamp(2.5rem,6vw,4.5rem)] text-text-primary dark:text-text-on-dark mb-5">
-                Tu cliente escanea.{" "}
-                <span className="accent-serif text-brand-red">Ve el plato en 3D.</span>{" "}
-                Pide.
+                Lleva tu menú{" "}
+                <br />
+                <span className="accent-serif text-brand-red">al siguiente nivel</span>
               </h1>
               <p className="font-body text-lg text-text-secondary dark:text-text-on-dark-secondary leading-relaxed max-w-lg">
                 DISHPLAY convierte tu carta en una experiencia digital inmersiva: fotos profesionales, video y modelos 3D de cada plato — accesibles con un QR desde cualquier celular. Nosotros vamos a tu local, producimos todo, y tu carta queda lista en dias.
