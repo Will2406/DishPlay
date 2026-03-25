@@ -9,9 +9,7 @@ export default function Footer() {
             <a href="#" className="heading text-xl tracking-tight text-text-on-dark mb-3 inline-block">
               <span className="text-brand-red">Dish</span>play
             </a>
-            <p className="font-body text-sm text-text-on-dark-secondary max-w-xs leading-relaxed">
-              Carta digital inmersiva con fotografia profesional, video y 3D para tu restaurante.
-            </p>
+            <p className="font-body text-sm text-text-on-dark-secondary max-w-xs leading-relaxed">Carta digital inmersiva con fotografia profesional, video y 3D para tu restaurante.</p>
           </div>
           <div>
             <h4 className="font-body text-xs font-bold text-text-on-dark mb-3 uppercase tracking-wider">Producto</h4>
@@ -30,9 +28,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <p className="font-body text-xs text-text-on-dark-secondary/50 pt-6 text-center">
-          © 2026 DISHPLAY. Todos los derechos reservados.
-        </p>
+        <p className="font-body text-xs text-text-on-dark-secondary/50 pt-6 text-center">© 2026 DISHPLAY. Todos los derechos reservados.</p>
       </div>
     </footer>
   );

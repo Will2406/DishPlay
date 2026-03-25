@@ -13,22 +13,16 @@ export default function Plans() {
     <section ref={ref} id="planes" className="bg-dark-deep py-20 md:py-32">
       <div className="max-w-3xl mx-auto px-5 sm:px-8 text-center">
         <motion.div {...anim(0)}>
-          <span className="inline-block glass-dark text-brand-red font-body font-semibold text-xs tracking-wide uppercase px-3.5 py-1.5 rounded-full mb-5">
-            Acceso anticipado
-          </span>
+          <span className="inline-block glass-dark text-brand-red font-body font-semibold text-xs tracking-wide uppercase px-3.5 py-1.5 rounded-full mb-5">Acceso anticipado</span>
           <h2 className="heading text-[clamp(2rem,5vw,3.5rem)] text-text-on-dark mb-4">
-            Estamos eligiendo los primeros{" "}
-            <span className="accent-serif text-brand-red">restaurantes.</span>
+            Estamos eligiendo los primeros{" "}<span className="accent-serif text-brand-red">restaurantes.</span>
           </h2>
           <p className="font-body text-lg text-text-on-dark-secondary leading-relaxed max-w-xl mx-auto mb-4">
             DISHPLAY esta en fase de lanzamiento. Buscamos restaurantes que quieran ser los primeros en ofrecer su carta en 3D y Realidad Aumentada en Peru.
           </p>
-          <p className="font-body text-text-on-dark-secondary/60 mb-10">
-            Los primeros en la lista tendran condiciones especiales de lanzamiento.
-          </p>
+          <p className="font-body text-text-on-dark-secondary/60 mb-10">Los primeros en la lista tendran condiciones especiales de lanzamiento.</p>
         </motion.div>
 
-        {/* What you get */}
         <motion.div {...anim(0.15)} className="grid sm:grid-cols-3 gap-4 mb-12">
           {[
             { icon: "🎯", text: "Acceso antes que nadie" },
@@ -43,9 +37,7 @@ export default function Plans() {
         </motion.div>
 
         <motion.div {...anim(0.25)}>
-          <a href="#contacto" className="inline-block bg-brand-red text-white font-body font-bold px-8 py-4 rounded-full hover:bg-brand-red-dark transition-[background,box-shadow] hover:shadow-lg hover:shadow-brand-red/20 active:scale-[0.98] text-base">
-            Quiero estar en la lista →
-          </a>
+          <a href="#contacto" className="inline-block bg-brand-red text-white font-body font-bold px-8 py-4 rounded-full hover:bg-brand-red-dark transition-[background,box-shadow] hover:shadow-lg hover:shadow-brand-red/20 active:scale-[0.98] text-base">Quiero estar en la lista →</a>
           <p className="font-body text-sm text-text-on-dark-secondary/50 mt-4">Sin compromiso. Te contactamos cuando estemos listos.</p>
         </motion.div>
       </div>
